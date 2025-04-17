@@ -1,0 +1,1900 @@
+:root {
+  --primary: #8e05c2;
+  --black: #0f0f0f;
+  --white: #fff;
+  --gray: #7a7a7a;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--white);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: var(--black);
+  color: var(--white);
+}
+
+.container {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 1.5rem 6rem;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 10vh;
+  z-index: 9999;
+  transition: transform 0.3s ease-in-out;
+  mix-blend-mode: difference;
+}
+
+header .container .content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header .container .content .logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header .container .content .logo a {
+  font: italic bold 1.5rem "IBM Plex Sans", sans-serif;
+  color: var(--white);
+}
+
+header .container .content nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+}
+
+header.aos-init.aos-animate.hidden {
+  transform: translateY(-100%);
+}
+
+header .container .content nav a {
+  display: flex;
+  flex-direction: column;
+  font: 600 1rem "IBM Plex Sans", sans-serif;
+  color: var(--white);
+  transition: 0.2s linear;
+}
+
+header .container .content nav a::after {
+  content: "";
+  display: block;
+  border-bottom: 2px solid #fff;
+  transform: scaleX(0);
+  transition: 0.2s linear;
+}
+
+header .container .content nav a:hover::after {
+  transform: scaleX(1);
+  transition: 0.2s linear;
+}
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.hero .container .content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero .container .content .shape-1 {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background-color: #fff;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 30%;
+  animation: shape-1 60s infinite;
+}
+
+.hero .container .content .shape-2 {
+  position: absolute;
+  width: 300px;
+  height: 50px;
+  background-color: #fff;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 30%;
+  animation: shape-2 120s infinite;
+}
+
+.hero .container .content .line {
+  position: absolute;
+  width: 100%;
+  height: 4%;
+  transform: rotate(45deg);
+  background-color: #fff;
+  top: 0;
+  right: -100%;
+  filter: blur(50px);
+  animation: line 50s infinite;
+}
+
+@keyframes line {
+  from {
+    right: -100%;
+    top: 0;
+    opacity: 30%;
+  }
+
+  to {
+    right: 100%;
+    top: 100%;
+    opacity: 0;
+  }
+}
+
+@keyframes shape-1 {
+  0% {
+    left: 0;
+    top: 0;
+  }
+  25% {
+    left: 50%;
+    top: 50%;
+  }
+  50% {
+    left: 30%;
+    top: 80%;
+  }
+  75% {
+    left: 20%;
+    top: 50%;
+  }
+  100% {
+    left: 0;
+    top: 0;
+  }
+}
+
+@keyframes shape-2 {
+  0% {
+    left: 0;
+    top: 0;
+  }
+  25% {
+    left: 40%;
+    top: 70%;
+  }
+  50% {
+    left: 20%;
+    top: 50%;
+  }
+  75% {
+    left: 50%;
+    top: 100%;
+  }
+  100% {
+    left: 0;
+    top: 0;
+  }
+}
+
+.hero .container .content .text {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
+}
+
+.hero .container .content .text h1 {
+  font: bolder 8rem "IBM Plex Sans", sans-serif;
+  line-height: 8rem;
+}
+
+.hero .container .content .text .row-2 {
+  margin-left: -7rem;
+}
+
+.hero .container .content .text .row-2 {
+  color: var(--black);
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: var(--white);
+}
+
+.hero .container .content .arrow {
+  position: absolute;
+  bottom: 4rem;
+  cursor: pointer;
+  border: 2px solid var(--white);
+  border-radius: 50%;
+  fill: var(--white);
+  width: 75px;
+  height: 75px;
+  animation: arrow 2s infinite alternate;
+  transition: 0.2s linear;
+  z-index: 10;
+}
+
+.hero .container .content .arrow:hover {
+  background-color: var(--white);
+  fill: var(--black);
+  transition: 0.2s linear;
+}
+
+@keyframes arrow {
+  from {
+    transform: translateY(0px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(1.5rem);
+    opacity: 1;
+  }
+}
+
+.hero .container .content .short-info {
+  position: absolute;
+  bottom: 5rem;
+  padding: 0 6rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 5;
+}
+
+.hero .container .content .short-info .left-side,
+.hero .container .content .short-info .right-side {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.hero .container .content .short-info .left-side h1 {
+  font-size: 1.2rem;
+}
+
+.hero .container .content .short-info .left-side p {
+  color: var(--gray);
+  font: bold 0.9rem "IBM Plex Sans", sans-serif;
+}
+
+.hero .container .content .short-info .right-side p {
+  color: var(--gray);
+  font-weight: bold;
+}
+
+.hero .container .content .short-info .right-side h1 {
+  display: flex;
+  align-items: center;
+  height: 25px;
+  gap: 0.2rem;
+  font: bold 0.9rem "IBM Plex Sans", sans-serif;
+}
+
+.hero .container .content .short-info .right-side h1 .pulse {
+  position: relative;
+  width: 6px;
+  height: 20px;
+  background: #ff6a00;
+  border-radius: 6px;
+}
+
+.hero .container .content .short-info .right-side h1 .pulse::after {
+  content: "";
+  position: absolute;
+  width: 6px;
+  height: 20px;
+  background: #ff6a00;
+  border-radius: 6px;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+@keyframes rotBGimg {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.content-section {
+  padding: 100px 0;
+  background: radial-gradient(ellipse at bottom, #0d1e31, #111);;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.section-header h2 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  color: blanchedalmond;
+}
+
+.section-header p {
+  font-size: 1.1rem;
+  color: burlywood;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.columns-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  padding: 0 20px;
+}
+
+.column {
+  background: #07182E; 
+  border-radius: 12px; 
+  overflow: hidden; 
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1); 
+  transition: transform 0.3s ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;  
+}
+
+.column:hover {
+  transform: translateY(-10px);
+}
+
+.column::before {
+  content: '';
+  position: absolute;
+  z-index: -2; 
+  left: -50%; 
+  top: -50%; 
+  width: 200%; 
+  height: 200%; 
+  background-image: linear-gradient(180deg, rgb(0, 183, 255), rgb(255, 48, 255)); 
+  animation: rotBGimg 4s linear infinite;
+  transition: all 0.2s linear;
+}
+
+.column::after {
+  content: '';
+  position: absolute;
+  z-index: -1; 
+  background: #07182E;
+  inset: 4px; 
+  border-radius: 8px; 
+}
+
+.image-wrapper {
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+  position: relative; 
+  z-index: 1;
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  display: block;
+}
+
+.image-wrapper:hover img {
+  transform: scale(1.1);
+}
+
+.video-wrapper {
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  background-color: #000; /* Tambahkan background agar tidak terlihat transparan saat video belum diload */
+  display: flex; /* Untuk mengatur video di tengah wrapper jika perlu */
+  align-items: center;
+  justify-content: center;
+}
+
+.video-wrapper video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Atau 'cover' sesuai preferensi Anda */
+  display: block;
+}
+
+.video-wrapper:hover video {
+  transform: scale(1.1); /* Efek hover jika diinginkan */
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* Warna latar belakang overlay */
+  z-index: 1000;
+  display: none; /* Sembunyikan secara default */
+  cursor: pointer; /* Untuk indikasi bisa diklik untuk keluar */
+}
+
+.column.blurred {
+  filter: blur(5px);
+  transition: filter 0.3s ease;
+}
+
+.zoomed {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1.5); /* Sesuaikan skala zoom sesuai keinginan */
+  z-index: 1001;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  overflow: hidden;
+  max-width: 90%; /* Batasi lebar maksimum */
+  max-height: 90%; /* Batasi tinggi maksimum */
+  object-fit: contain; /* Atau 'cover' tergantung jenis elemen */
+  background-color: #fff; /* Untuk video atau gambar tanpa latar belakang */
+}
+
+.zoomed video {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.zoomed img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain; /* Atau 'cover' */
+}
+
+.column h3 {
+  font-size: 1.4rem;
+  margin: 20px 20px 10px;
+  color: blanchedalmond;
+  position: relative;
+  z-index: 1;
+}
+
+.column p {
+  font-size: 1rem;
+  color: burlywood;
+  line-height: 1.6;
+  margin: 0 20px 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.about-me-button {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  width: 45%;
+  padding: 12px;
+  background-color: var(--black);
+  border: 2px solid white; /* Border awal dibuat transparan */
+  border-radius: 32px;
+  font-weight: bold;
+  color: var(--white);
+  transition: all 0.2s linear;
+  position: relative; /* Untuk memposisikan pseudo-elements */
+  overflow: hidden; 
+  margin-top: 20rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+}
+
+.about-me-button::before,
+.about-me-button::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, red, yellow, green, cyan, blue, magenta, red);
+  border-radius: 32px;
+  z-index: -1; /* Di belakang konten tombol */
+  background-size: 400% 400%;
+  animation: rainbow-border 8s linear infinite;
+}
+
+.about-me-button::after {
+  filter: blur(10px); /* Efek blur untuk cahaya tambahan */
+}
+
+@keyframes rainbow-border {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.about-me-button:hover {
+  color: var(--black);
+  background-color: var(--white);
+  /* Animasi hover yang lebih menarik */
+  transform: scale(1.05); /* Sedikit membesar */
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.7); /* Efek cahaya */
+}
+
+.about-me-button:hover .arrow {
+  transform: rotate(180deg) translateX(5px); /* Panah bergerak sedikit */
+  fill: var(--black);
+  transition: all 0.2s linear;
+}
+
+.about-me-button .arrow {
+  width: 20px;
+  transform: rotate(135deg);
+  fill: var(--white);
+  transition: all 0.2s linear;
+}
+
+.logo {
+  margin: 20px;
+  font-size: 3rem;
+  font-weight: 800;
+  cursor: pointer;
+  position: relative;
+  text-transform: uppercase;
+  overflow: hidden;
+  background-color: #fff;
+  background-image: url("./assets/logo.jpg"), url("./assets/logo.jpg");
+  background-repeat: repeat;
+  background-size: 2048px;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: 72s diagonal-flow infinite linear, 23s hue-rotate infinite linear;
+}
+
+@keyframes diagonal-flow {
+  0% {
+    background-position: 100px 100px;
+  }
+  100% {
+    background-position: -5020px 4196px;
+  }
+}
+
+@keyframes hue-rotate {
+  0% {
+    -webkit-filter: hue-rotate(0deg);
+    filter: hue-rotate(0deg);
+  }
+  50% {
+    -webkit-filter: hue-rotate(-60deg);
+    filter: hue-rotate(-60deg);
+  }
+  100% {
+    -webkit-filter: hue-rotate(0deg);
+    filter: hue-rotate(0deg);
+  }
+}
+
+.logo:hover{
+  transform: scale(1.1);
+}
+
+.home {
+  margin: 4rem 0;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.animated-nadif {
+  position: relative;
+  overflow: hidden;
+  background-color: #fff;
+  background-image: url("./assets/Red\ Background.jpg"), url("./assets/Red\ Background.jpg");
+  background-repeat: repeat;
+  background-size: 2048px;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: 72s diagonal-flow infinite linear, 23s hue-rotate infinite linear;
+  display: inline-block; /* Penting agar efek clip bekerja dengan baik */
+}
+
+@keyframes diagonal-flow {
+  0% {
+    background-position: 100px 100px;
+  }
+  100% {
+    background-position: -5020px 4196px;
+  }
+}
+
+@keyframes hue-rotate {
+  0% {
+    -webkit-filter: hue-rotate(0deg);
+    filter: hue-rotate(0deg);
+  }
+  50% {
+    -webkit-filter: hue-rotate(-60deg);
+    filter: hue-rotate(-60deg);
+  }
+  100% {
+    -webkit-filter: hue-rotate(0deg);
+    filter: hue-rotate(0deg);
+  }
+}
+
+.animated-nadif:hover {
+  transform: scale(1.1);
+}
+
+.about {
+  position: relative;
+  margin: 4rem 0;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.about .container .content {
+  display: flex;
+  align-items: start;
+  height: 100vh;
+  width: 100%;
+}
+
+.about .container .content .title {
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  height: 100%;
+}
+
+.about .container .content .title h2 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 2.5rem;
+  color: var(--gray);
+  margin-top: 6rem;
+}
+
+.about .container .content .title h2 hr {
+  width: 90px;
+  padding: 2px;
+  border: none;
+  background-color: var(--gray);
+  margin-top: 4px;
+}
+
+.about .container .content .title h1 {
+  font: italic bold 3.5rem "IBM Plex Sans", sans-serif;
+}
+
+.about .container .content .profile-container {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about .container .content .profile-container .profile {
+  width: 100%;
+  height: 75%;
+  display: flex;
+  align-items: end;
+  background: var(--gray);
+  border-radius: 64px;
+  overflow: hidden;
+}
+
+.about .container .content .profile-container .profile img {
+  width: 100%;
+  height: 100%;
+}
+
+.about .container .content .about-me {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  padding-left: 4rem;
+  width: 25%;
+  height: 100%;
+}
+
+.about .container .content .about-me p {
+  font-weight: 500;
+  font-style: italic;
+  line-height: 1.4rem;
+}
+
+.about .container .content .about-me button {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  width: 45%;
+  padding: 12px;
+  background-color: var(--black);
+  border: 2px solid white; /* Border awal dibuat transparan */
+  border-radius: 32px;
+  font-weight: bold;
+  color: var(--white);
+  transition: all 0.2s linear;
+  position: relative; /* Untuk memposisikan pseudo-elements */
+  overflow: hidden; /* Untuk memastikan animasi border tidak keluar dari batas */
+}
+
+.about .container .content .about-me button::before,
+.about .container .content .about-me button::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, red, yellow, green, cyan, blue, magenta, red);
+  border-radius: 32px;
+  z-index: -1; /* Di belakang konten tombol */
+  background-size: 400% 400%;
+  animation: rainbow-border 8s linear infinite;
+}
+
+.about .container .content .about-me button::after {
+  filter: blur(10px); /* Efek blur untuk cahaya tambahan */
+}
+
+@keyframes rainbow-border {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.about .container .content .about-me button:hover {
+  color: var(--black);
+  background-color: var(--white);
+  /* Animasi hover yang lebih menarik */
+  transform: scale(1.05); /* Sedikit membesar */
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.7); /* Efek cahaya */
+}
+
+.about .container .content .about-me button:hover .arrow {
+  transform: rotate(180deg) translateX(5px); /* Panah bergerak sedikit */
+  fill: var(--black);
+  transition: all 0.2s linear;
+}
+
+.about .container .content .about-me button .arrow {
+  width: 20px;
+  transform: rotate(135deg);
+  fill: var(--white);
+  transition: all 0.2s linear;
+}
+
+.about .container .content .text-wrapper {
+  position: absolute;
+  bottom: 2rem;
+  left: 0;
+  display: flex;
+  gap: 2rem;
+}
+
+.about .container .content .text-wrapper .text {
+  display: flex;
+  flex-shrink: 0;
+  gap: 2rem;
+  animation: marquee 8s linear infinite;
+}
+
+.about .container .content .text-wrapper .text h1 {
+  font: italic bold 9rem "IBM Plex Sans", sans-serif;
+  white-space: nowrap;
+}
+
+.about .container .content .text-wrapper .text h1 span {
+  color: transparent;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: var(--white)
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.categories,
+.contact {
+  margin: 4rem 0;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.categories .container .content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.categories .container .content .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.categories .container .content .header button {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  width: 15%;
+  padding: 12px;
+  background-color: var(--black);
+  border: 2px solid #fff;
+  border-radius: 32px;
+  font-weight: bold;
+  color: var(--white);
+  transition: all 0.2s linear;
+}
+
+.categories .container .content .header button:hover {
+  color: var(--black);
+  background-color: var(--white);
+}
+
+.categories .container .content .header button .arrow {
+  width: 20px;
+  transform: rotate(135deg);
+  fill: var(--white);
+  transition: all 0.2s linear;
+}
+
+.categories .container .content .header button:hover .arrow {
+  transform: rotate(180deg);
+  fill: var(--black);
+  transition: all 0.2s linear;
+}
+
+.categories .container .content .header .title {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  font: italic bold 1.5rem "IBM Plex Sans", sans-serif;
+}
+
+.categories .container .content .header .title .row-1 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-align: end;
+  color: var(--gray);
+}
+
+.categories .container .content .header .title .row-1 hr {
+  width: 75px;
+  padding: 2px;
+  border: none;
+  background-color: var(--gray);
+  margin-top: 4px;
+}
+
+.categories .container .content .header .title .row-2 {
+  font-size: 3rem;
+}
+
+.categories .container .content .project-area {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  height: auto;
+  gap: 1rem;
+}
+
+.categories .container .content .project-area:hover .projects:not(:hover) img {
+  filter: brightness(100%);
+  transition: 0.3s linear;
+}
+
+.categories .container .content .project-area .projects {
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(33.333% - 0.67rem);
+  height: auto;
+  background: var(--gray);
+  border-radius: 64px;
+  overflow: hidden;
+}
+
+.categories .container .content .project-area .projects img {
+  filter: brightness(100%);
+  width: 100%;
+  height: 100%;
+  transition: 0.3s linear;
+}
+
+.categories .container .content .project-area .projects:hover img {
+  filter: brightness(30%);
+}
+
+.categories .container .content .project-area .projects .desc {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.2s linear;
+}
+
+.categories .container .content .project-area .projects .desc h1 {
+  font: italic bold 4rem "IBM Plex Sans", sans-serif;
+}
+
+.categories .container .content .project-area .projects .desc p {
+  text-align: center;
+  width: 75%;
+}
+
+.categories .container .content .project-area .projects:hover .desc {
+  opacity: 1;
+  transition: opacity 0.2s linear;
+}
+
+.contact .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: center; 
+  min-height: 100vh;
+  padding: 2rem;
+  box-sizing: border-box;
+  text-align: center; 
+}
+
+.contact .container .content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+  max-width: 1200px;
+  align-items: center;
+}
+
+.contact .container .content .title {
+  text-align: center;
+  font: italic bold 1.3rem "IBM Plex Sans", sans-serif;
+}
+
+.contact .container .content .title h2 {
+  color: var(--gray);
+}
+
+.contact .container .content .title h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.contact .container .content .contact-area {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 900px;
+  align-items: center;
+}
+
+.contact .container .content .contact-area .left-side {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; 
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.contact .container .content .contact-area .left-side h1 {
+  font: 500 2.5rem "IBM Plex Sans", sans-serif;
+  margin-top: 0;
+  transform: scale(1);
+  line-height: 1.2;
+}
+
+.contact .container .content .contact-area .left-side h1:nth-child(2) {
+  margin-left: 0;
+}
+
+
+.contact .container .content .contact-area .right-side {
+  width: 100%;
+  padding: 2rem 0;
+  display: flex;
+  justify-content: center;
+}
+
+.contact .container .content .contact-area .right-side form {
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+  max-width: 400px;
+}
+
+.contact .container .content .contact-area .right-side form input {
+  padding: 1rem;
+  border: none;
+  border-bottom: 2px solid var(--white);
+  outline: none;
+  color: var(--white);
+  font-size: 1rem;
+  background: transparent;
+}
+
+.contact .container .content .contact-area .right-side form input::placeholder,
+.contact .container .content .contact-area .right-side form textarea::placeholder {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.contact .container .content .contact-area .right-side form textarea {
+  resize: vertical;
+  height: auto;
+  min-height: 100px;
+  padding: 1rem;
+  border: none;
+  border-bottom: 2px solid var(--white);
+  outline: none;
+  color: var(--white);
+  font-size: 1rem;
+  background: transparent;
+}
+
+.contact .container .content .contact-area .right-side form button {
+  cursor: pointer;
+  padding: 0.7rem 1.5rem;
+  margin-bottom: 1rem;
+  border: 2px solid var(--white);
+  border-radius: 16px;
+  font: bold 1rem "IBM Plex Sans", sans-serif;
+  background: var(--black);
+  color: var(--white);
+  transition: .2s linear;
+  align-self: center;
+}
+
+.contact .container .content .contact-area .right-side form button:hover {
+  background-color: var(--white);
+  color: var(--black);
+  transition: .2s linear;
+}
+
+.lanyard-wrapper {
+  position: relative;
+  width: 250px;
+  height: 350px;
+  perspective: 800px;
+  font-family: system-ui, -apple-system, sans-serif;
+  margin: 2rem auto; 
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  border-radius: 1.5rem;
+  background: black;
+  transform-style: preserve-3d;
+  transition: transform 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-top {
+  position: absolute;
+  top: 0;
+  width: 70%;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--red);
+  border-top: none;
+  border-radius: 0 0 0.75rem 0.75rem;
+  background: rgba(0, 0, 0, 0.8);
+  box-shadow: 0 0 8px 3px rgba(0, 140, 255, 0.7);
+}
+
+.card-top-para {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--red);
+  text-align: center;
+}
+
+.front,
+.back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 1.5rem;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  box-shadow: 0 0 8px 3px rgba(0, 140, 255, 0.7);
+  text-align: center;
+}
+
+.front {
+  background: linear-gradient(45deg, #1a1a1a, #2a2a2a);
+}
+
+.back {
+  background: #000;
+  transform: rotateX(180deg) rotateZ(-180deg);
+}
+
+.heading {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--white);
+}
+
+.follow {
+  font-size: 0.8rem;
+  color: var(--gray);
+  margin-top: 0.5rem;
+}
+
+.icons {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.icons svg {
+  width: 20px;
+  height: 20px;
+}
+
+.lanyard-wrapper:hover .card {
+  transform: rotateX(180deg) rotateZ(-180deg);
+  cursor: pointer;
+}
+
+.night {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: rotateZ(45deg);
+}
+
+.star {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 4px;
+  width: 100px;
+  background: linear-gradient(-45deg, #5F91FF, rgba(0, 0, 255, 0));
+  border-radius: 999px;
+  filter: drop-shadow(0 0 6px #699BFF);
+  animation: tail 3s ease-in-out infinite, falling 3s ease-in-out infinite;
+}
+
+@keyframes tail {
+  0% {
+    width: 0px;
+  }
+  30% {
+    width: 100px;
+  }
+  100% {
+    width: 0;
+  }
+}
+
+@keyframes falling {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(300px);
+  }
+}
+
+.star::before, .star::after {
+  content: '';
+  position: absolute;
+  top: calc(50% - 2px);
+  right: 0;
+  height: 4px;
+  width: 30px;
+  background: linear-gradient(-45deg, rgba(0, 0, 255, 0), #5F91FF, rgba(0, 0, 255, 0));
+  border-radius: 100%;
+  transform: translateX(50%) rotateZ(45deg);
+  animation: shining 3s ease-in-out infinite;
+}
+
+@keyframes shining {
+  0% {
+    width: 0px;
+  }
+  50% {
+    width: 30px;
+  }
+  100% {
+    width: 0;
+  }
+}
+
+.star::after {
+  transform: translateX(50%) rotateZ(-45deg);
+}
+
+.star:nth-child(1) {
+  top: calc(50% - 150px);
+  left: calc(50% - 300px);
+  animation-delay: 0.2s;
+}
+
+.star:nth-child(1)::before, .star:nth-child(1)::after {
+  animation-delay: 0.2s;
+}
+
+.star:nth-child(2) {
+  top: calc(50% - 100px);
+  left: calc(50% - 250px);
+  animation-delay: 0.4s;
+}
+
+.star:nth-child(2)::before, .star:nth-child(2)::after {
+  animation-delay: 0.4s;
+}
+
+.star:nth-child(3) {
+  top: calc(50% - 50px);
+  left: calc(50% - 200px);
+  animation-delay: 0.6s;
+}
+
+.star:nth-child(3)::before, .star:nth-child(3)::after {
+  animation-delay: 0.6s;
+}
+
+.star:nth-child(4) {
+  top: calc(50% - 0px);
+  left: calc(50% - 150px);
+  animation-delay: 0.8s;
+}
+
+.star:nth-child(4)::before, .star:nth-child(4)::after {
+  animation-delay: 1s;
+}
+
+.star:nth-child(5) {
+  top: calc(50% - -50px);
+  left: calc(50% - 200px);
+  animation-delay: 1.2s;
+}
+
+.star:nth-child(5)::before, .star:nth-child(5)::after {
+  animation-delay: 1.2s;
+}
+
+.star:nth-child(6) {
+  top: calc(50% - -100px);
+  left: calc(50% - 250px);
+  animation-delay: 1.4s;
+}
+
+.star:nth-child(6)::before, .star:nth-child(6)::after {
+  animation-delay: 1.4s;
+}
+
+.star:nth-child(7) {
+  top: calc(50% - -150px);
+  left: calc(50% - 300px);
+  animation-delay: 1.6s;
+}
+
+.star:nth-child(7)::before, .star:nth-child(7)::after {
+  animation-delay: 1.6s;
+}
+
+.star:nth-child(8) {
+  top: calc(50% - 200px);
+  left: calc(50% - 350px);
+  animation-delay: 1.8s;
+}
+
+.star:nth-child(8)::before, .star:nth-child(8)::after {
+  animation-delay: 1.8s;
+}
+
+.star:nth-child(9) {
+  top: calc(50% - 250px);
+  left: calc(50% - 400px);
+  animation-delay: 2s;
+}
+
+.star:nth-child(9)::before, .star:nth-child(9)::after {
+  animation-delay: 2s;
+}
+
+.star:nth-child(10) {
+  top: calc(50% - -200px);
+  left: calc(50% - 450px);
+  animation-delay: 2.2s;
+}
+
+.star:nth-child(10)::before, .star:nth-child(10)::after {
+  animation-delay: 2.2s;
+}
+
+.star:nth-child(11) {
+  top: calc(50% - 100px);
+  left: calc(50% - 500px);
+  animation-delay: 2.4s;
+}
+
+.star:nth-child(11)::before, .star:nth-child(11)::after {
+  animation-delay: 2.4s;
+}
+
+footer {
+  min-height: 20vh !important;
+}
+
+footer .container .content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+footer .container .content h1 {
+  font: italic bold 1.5rem "IBM Plex Sans", sans-serif;
+}
+
+footer .container .content .social {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+footer .container .content .social a { 
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background: var(--black);
+  border: 2px solid var(--white);
+  border-radius: 50%;
+  color: var(--white);
+  transition: 0.2s linear;
+  text-decoration: none; 
+}
+
+footer .container .content .social a:hover {
+  background-color: var(--white);
+  color: var(--black);
+  transition: 0.2s linear;
+}
+
+footer .container .content .social p {
+  font-weight: bold;
+}
+
+footer .container .content .social a i { 
+  font-size: 1.2rem;
+  color: var(--white);
+}
+
+footer .container .content .social a:hover i { 
+  color: var(--black);
+}
+
+@media (max-width: 1200px) {
+  .container {
+    padding: 1.5rem 4rem;
+  }
+
+  header .container .content nav {
+    gap: 3rem;
+  }
+
+  .hero .container .content .text h1 {
+    font-size: 7rem;
+    line-height: 7rem;
+  }
+
+  .hero .container .content .text .row-2 {
+    margin-left: -6rem;
+  }
+
+  .about .container .content .title h1 {
+    font-size: 3rem;
+  }
+
+  .about .container .content .about-me {
+    padding-left: 3rem;
+  }
+
+  .about .container .content .text-wrapper .text h1 {
+    font-size: 8rem;
+  }
+
+  .categories .container .content .header .title .row-2 {
+    font-size: 2.5rem;
+  }
+
+  .categories .container .content .project-area .projects .desc h1 {
+     font-size: 3rem;
+  }
+
+  .contact .container .content .contact-area .left-side h1 {
+    font-size: 2.2rem;
+  }
+
+  .columns-container {
+     padding: 0 30px;
+  }
+
+}
+
+@media (max-width: 992px) {
+  .container {
+    padding: 1.5rem 2rem;
+  }
+
+  header .container .content nav {
+    gap: 2rem;
+  }
+
+  header .container .content nav a {
+    font-size: 0.9rem;
+  }
+
+   header .container .content .extra-nav a {
+     padding: 0.3rem 1.5rem;
+     font-size: 0.9rem;
+   }
+
+  .hero .container .content .text h1 {
+    font-size: 5rem;
+    line-height: 5rem;
+  }
+
+  .hero .container .content .text .row-2 {
+    margin-left: -4rem;
+  }
+
+   .hero .container .content .short-info {
+     padding: 0 2rem;
+     bottom: 6rem;
+   }
+
+   .hero .container .content .short-info .left-side h1,
+   .hero .container .content .short-info .right-side h1 {
+     font-size: 1rem;
+   }
+   .hero .container .content .short-info .left-side p,
+   .hero .container .content .short-info .right-side p {
+     font-size: 0.8rem;
+   }
+
+  .about .container .content {
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    text-align: center;
+    padding-top: 8rem;
+    padding-bottom: 15rem;
+    gap: 2rem;
+  }
+
+  .about .container .content .title,
+  .about .container .content .profile-container,
+  .about .container .content .about-me {
+    width: 90%;
+    max-width: 500px;
+    height: auto;
+    padding-left: 0;
+    align-items: center;
+  }
+
+  .about .container .content .title {
+      margin-top: 0;
+  }
+
+  .about .container .content .title h2 {
+    justify-content: center;
+    margin-top: 0;
+    font-size: 2rem;
+  }
+  .about .container .content .title h2 hr {
+     width: 60px;
+  }
+
+  .about .container .content .title h1 {
+      font-size: 2.8rem;
+  }
+
+  .about .container .content .profile-container .profile {
+    height: 400px;
+    width: 100%;
+    max-width: 350px;
+  }
+
+  .about .container .content .about-me {
+      gap: 1.5rem;
+  }
+
+  .about .container .content .about-me button {
+    width: 60%;
+    margin: 0 auto;
+  }
+
+  .about .container .content .text-wrapper {
+     bottom: 1rem;
+  }
+
+  .about .container .content .text-wrapper .text h1 {
+    font-size: 6rem;
+  }
+
+  .categories .container .content .project-area .projects {
+    width: calc(50% - 0.5rem);
+    border-radius: 48px;
+  }
+
+   .categories .container .content .project-area .projects .desc h1 {
+      font-size: 2.5rem;
+   }
+    .categories .container .content .project-area .projects .desc p {
+      font-size: 0.9rem;
+      width: 85%;
+   }
+
+  .categories .container .content .header {
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+    text-align: center;
+  }
+
+  .categories .container .content .header .title {
+    align-items: center;
+  }
+
+   .categories .container .content .header .title .row-1 {
+     justify-content: center;
+   }
+
+  .categories .container .content .header button {
+    width: 40%;
+    max-width: 250px;
+  }
+
+  .contact .container .content .contact-area {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contact .container .content .contact-area .left-side,
+  .contact .container .content .contact-area .right-side {
+    width: 100%;
+    max-width: 500px;
+    padding: 1rem 0;
+  }
+
+  .contact .container .content .contact-area .left-side h1 {
+    font-size: 2rem;
+  }
+
+  .columns-container {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    padding: 0 20px;
+  }
+
+  .section-header h2 {
+     font-size: 2rem;
+  }
+  .section-header p {
+     font-size: 1rem;
+  }
+
+  .logo {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 1.5rem 1rem;
+  }
+
+  header .container .content nav {
+    display: none;
+  }
+
+  header .container .content .logo a {
+    font-size: 1.3rem;
+  }
+
+  header .container .content .extra-nav {
+  }
+
+  .hero .container .content .text h1 {
+    font-size: 3.5rem;
+    line-height: 3.8rem;
+  }
+
+  .hero .container .content .text .row-2 {
+    margin-left: 0;
+  }
+
+  .hero .container .content .arrow {
+     width: 60px;
+     height: 60px;
+     bottom: 2rem;
+  }
+
+  .hero .container .content .short-info {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+    bottom: 10rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+  }
+
+  .about .container .content {
+     padding-top: 6rem;
+     padding-bottom: 12rem;
+  }
+
+  .about .container .content .title h1 {
+      font-size: 2.2rem;
+  }
+   .about .container .content .profile-container .profile {
+    height: 350px;
+    max-width: 300px;
+  }
+
+  .about .container .content .about-me p {
+      font-size: 0.9rem;
+      line-height: 1.3rem;
+  }
+
+  .about .container .content .about-me button {
+    width: 70%;
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+
+  .about .container .content .text-wrapper .text h1 {
+    font-size: 4rem;
+  }
+
+  .categories .container .content .project-area .projects {
+    width: 100%;
+    border-radius: 32px;
+  }
+
+  .categories .container .content .header button {
+    width: 60%;
+  }
+
+   .categories .container .content .header .title .row-2 {
+    font-size: 2rem;
+  }
+
+  .contact .container .content .title h1 {
+     font-size: 2rem;
+  }
+
+   .contact .container .content .contact-area .left-side h1 {
+    font-size: 1.8rem;
+  }
+
+  .contact .container .content .contact-area .right-side form {
+     width: 90%;
+  }
+
+  .columns-container {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    padding: 0 15px;
+  }
+
+  .column {
+     border-radius: 10px;
+  }
+   .column::after {
+     border-radius: 6px;
+     inset: 3px;
+   }
+
+  .image-wrapper, .video-wrapper {
+     height: 220px;
+  }
+
+   .column h3 {
+      font-size: 1.2rem;
+      margin: 15px 15px 8px;
+   }
+   .column p {
+      font-size: 0.9rem;
+      margin: 0 15px 15px;
+   }
+
+  .lanyard-wrapper {
+     transform: scale(0.9);
+     margin: 1rem auto;
+  }
+
+  footer .container .content h1 {
+     font-size: 1.3rem;
+  }
+
+   footer .container .content .social {
+     flex-wrap: wrap;
+     justify-content: center;
+   }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 1rem 0.8rem;
+  }
+
+  .hero .container .content .text h1 {
+    font-size: 2.8rem;
+    line-height: 3rem;
+  }
+
+   .hero .container .content .short-info {
+     width: 90%;
+     bottom: 9rem;
+   }
+
+  .about .container .content {
+     padding-top: 5rem;
+     padding-bottom: 10rem;
+  }
+
+   .about .container .content .title h1 {
+      font-size: 2rem;
+  }
+   .about .container .content .profile-container .profile {
+    height: 300px;
+    max-width: 250px;
+  }
+   .about .container .content .about-me button {
+    width: 80%;
+  }
+
+   .about .container .content .text-wrapper .text h1 {
+    font-size: 3rem;
+  }
+
+   .categories .container .content .project-area .projects .desc h1 {
+      font-size: 2rem;
+   }
+    .categories .container .content .project-area .projects .desc p {
+      font-size: 0.8rem;
+      width: 90%;
+   }
+
+  .categories .container .content .header button {
+    width: 75%;
+    font-size: 0.9rem;
+  }
+   .categories .container .content .header .title .row-1 {
+     font-size: 1.2rem;
+   }
+   .categories .container .content .header .title .row-2 {
+    font-size: 1.8rem;
+  }
+
+  .contact .container .content .title h1 {
+     font-size: 1.8rem;
+  }
+   .contact .container .content .contact-area .left-side h1 {
+    font-size: 1.5rem;
+  }
+  .contact .container .content .contact-area .right-side form input,
+  .contact .container .content .contact-area .right-side form textarea {
+     font-size: 0.9rem;
+  }
+   .contact .container .content .contact-area .right-side form input::placeholder,
+   .contact .container .content .contact-area .right-side form textarea::placeholder {
+     font-size: 0.9rem;
+   }
+   .contact .container .content .contact-area .right-side form button {
+      width: 50%;
+      font-size: 0.9rem;
+   }
+
+   .section-header h2 {
+     font-size: 1.8rem;
+  }
+  .section-header p {
+     font-size: 0.9rem;
+  }
+
+   .lanyard-wrapper {
+     transform: scale(0.8);
+   }
+
+   footer .container .content .social a {
+     width: 35px;
+     height: 35px;
+   }
+   footer .container .content .social a i {
+      font-size: 1rem;
+   }
+}

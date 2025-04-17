@@ -1,0 +1,586 @@
+:root {
+    --primary: #8e05c2;
+    --black: #0f0f0f;
+    --white: #fff;
+    --gray: #7a7a7a;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--white);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    background-color: var(--black);
+    color: var(--white);
+}
+
+.container {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 1.5rem 6rem;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 10vh;
+    z-index: 9999;
+    transition: transform 0.3s ease-in-out;
+    mix-blend-mode: difference;
+}
+
+header .container .content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .container .content .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header .container .content .logo a {
+    font: italic bold 1.5rem "IBM Plex Sans", sans-serif;
+    color: var(--white);
+}
+
+header .container .content nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+}
+
+header.aos-init.aos-animate.hidden {
+    transform: translateY(-100%);
+}
+
+header .container .content nav a {
+    display: flex;
+    flex-direction: column;
+    font: 600 1rem "IBM Plex Sans", sans-serif;
+    color: var(--white);
+    transition: 0.2s linear;
+}
+
+header .container .content nav a::after {
+    content: "";
+    display: block;
+    border-bottom: 2px solid #fff;
+    transform: scaleX(0);
+    transition: 0.2s linear;
+}
+
+header .container .content nav a:hover::after {
+    transform: scaleX(1);
+    transition: 0.2s linear;
+}
+
+.logo {
+    margin: 20px;
+    font-size: 3rem;
+    font-weight: 800;
+    cursor: pointer;
+    position: relative;
+    text-transform: uppercase;
+    overflow: hidden;
+    background-color: #fff;
+    background-image: url("./assets/logo.jpg"), url("./assets/logo.jpg");
+    background-repeat: repeat;
+    background-size: 2048px;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: 72s diagonal-flow infinite linear, 23s hue-rotate infinite linear;
+}
+
+@keyframes diagonal-flow {
+    0% {
+      background-position: 100px 100px;
+    }
+    100% {
+      background-position: -5020px 4196px;
+    }
+}
+
+@keyframes hue-rotate {
+    0% {
+      -webkit-filter: hue-rotate(0deg);
+      filter: hue-rotate(0deg);
+    }
+    50% {
+      -webkit-filter: hue-rotate(-60deg);
+      filter: hue-rotate(-60deg);
+    }
+    100% {
+      -webkit-filter: hue-rotate(0deg);
+      filter: hue-rotate(0deg);
+    }
+}
+
+.logo:hover{
+    transform: scale(1.1);
+}
+
+.about {
+    position: relative;
+    padding: 80px 0;
+    min-height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.about .container .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+}
+
+.about .container .content .title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.about .container .content .title h2 {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 2.5rem;
+    color: var(--gray);
+    margin-top: 0;
+}
+
+.about .container .content .title h2 hr {
+    width: 90px;
+    padding: 2px;
+    border: none;
+    background-color: var(--gray);
+    margin-top: 4px;
+}
+
+.about .container .content .title h1 {
+    font: italic bold 3.5rem "IBM Plex Sans", sans-serif;
+    text-align: center;
+}
+
+.about .container .content .profile-container {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 20px;
+}
+
+.about .container .content .profile-container .profile {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.about .container .content .profile-container .profile img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.about .container .content .text-wrapper {
+    position: relative;
+    bottom: 3rem;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+}
+
+.about .container .content .text-wrapper .text {
+    display: inline-block;
+    animation: marquee 15s linear infinite;
+}
+
+.about .container .content .text-wrapper .text h1 {
+    font: italic bold 2rem "IBM Plex Sans", sans-serif;
+    display: inline-block;
+    margin-right: 2rem;
+}
+
+.about .container .content .text-wrapper .text h1 span {
+    color: transparent;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: var(--white);
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.about .container .content .about-me {
+    margin-top: -2rem;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.about .container .content .about-me p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--white);
+    margin-bottom: 1rem;
+    text-align: justify;
+}
+
+.services {
+    display: flex;
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    padding: 80px 0; 
+    text-align: center;
+}
+
+.title{
+    margin-bottom: 8px;
+}
+
+.title h1 {
+    font-weight: bold;
+    font-size: 25px; 
+    color: white; 
+    text-align: center; 
+}
+
+.education-card.card { 
+    position: relative;
+    height: 300px; 
+    width: 230px; 
+  }
+  
+  .education-card.card .boxshadow {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border: 1px solid rgb(0, 217, 255); /* Warna bisa disesuaikan */
+    transform: scale(0.8);
+    box-shadow: rgb(0, 217, 255) 0px 30px 70px 0px; /* Warna bisa disesuaikan */
+    transition: all 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+    z-index: -1; /* Pastikan di belakang main */
+  }
+  
+  .education-card.card .main {
+    width: 100%; /* Dibuat relatif terhadap .card */
+    height: 100%; /* Dibuat relatif terhadap .card */
+    overflow: hidden;
+    background: rgb(0, 255, 149); /* Warna bisa disesuaikan */
+    background: linear-gradient(
+      0deg,
+      #3e0000 0%, /* Warna bisa disesuaikan */
+      rgb(0, 247, 255) 60%, /* Warna bisa disesuaikan */
+      #3e0000 100% /* Warna bisa disesuaikan */
+    );
+    position: relative;
+    clip-path: polygon(
+      0 0,
+      100% 0,
+      100% 40px, /* Ukuran potongan sudut bisa disesuaikan */
+      100% calc(100% - 40px),
+      calc(100% - 40px) 100%,
+      40px 100%,
+      0 calc(100% - 40px)
+    );
+    box-shadow: rgb(0, 132, 255) 0px 7px 29px 0px; /* Warna bisa disesuaikan */
+    transition: all 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  }
+  
+  .education-card.card .main .top {
+    position: absolute;
+    top: 0px;
+    left: 0;
+    width: 0px;
+    height: 0px;
+    z-index: 2; /* Di atas elemen lain di .main kecuali .title saat hover */
+    border-top: 115px solid black; /* Warna & ukuran bisa disesuaikan */
+    border-left: 115px solid transparent; /* Sesuaikan dengan border-right */
+    border-right: 115px solid transparent; /* Sesuaikan dengan border-left */
+    transition: all 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  }
+  
+  .education-card.card .main .side {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    height: 101%; /* Sedikit lebih tinggi untuk overlap */
+    background: black; /* Warna bisa disesuaikan */
+    clip-path: polygon(0% 0%, 50% 0, 95% 45%, 100% 100%, 0% 100%); /* Bentuk reveal */
+    transition: all 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86) 1s; /* Delay agar muncul setelah animasi lain */
+    z-index: 1; /* Di bawah .top */
+  }
+  
+  .education-card.card .main .left {
+    left: 0;
+    transform: translateX(-50%); /* Mulai dari tengah kiri */
+  }
+  
+  .education-card.card .main .right {
+    right: 0;
+    transform: translateX(50%) scale(-1, 1); /* Mulai dari tengah kanan, dibalik */
+  }
+  
+  .education-card.card .main .button-container.education-list {
+    position: absolute;
+    bottom: 10px; /* Jarak dari bawah kartu */
+    left: 0; /* Lebar penuh */
+    width: 100%;
+    padding: 0 15px; /* Beri padding horizontal agar teks tidak menempel ke tepi */
+    box-sizing: border-box; /* Agar padding tidak menambah lebar */
+    /* Hapus transform: translateX(-50%) karena kita ingin listnya full width */
+    z-index: 4; /* Pastikan di atas side elements */
+  }
+  
+  .education-card.card .main .education-list .education-item {
+    position: relative; /* Ubah ke relative agar bisa diatur posisinya secara normal */
+    bottom: -150px; /* Mulai dari posisi tersembunyi di bawah */
+    opacity: 0; /* Mulai dari transparan */
+    background: rgba(0, 0, 0, 0.6); /* Latar belakang semi-transparan agar kontras */
+    color: white; /* Warna teks */
+    padding: 5px 10px; /* Padding internal */
+    margin-bottom: 5px; /* Jarak antar item */
+    border-radius: 4px; /* Sudut sedikit melengkung */
+    transition: all 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+    text-align: center; /* Teks rata tengah */
+  }
+  
+  .education-card.card .main .education-list .education-item h3 {
+    margin: 0 0 2px 0; /* Sedikit jarak bawah dari h3 */
+    font-size: 0.9em; /* Ukuran font nama sekolah */
+  }
+  
+  .education-card.card .main .education-list .education-item p {
+    margin: 0;
+    font-size: 0.75em; /* Ukuran font tahun */
+    opacity: 0.8; /* Sedikit redupkan teks tahun */
+  }
+  
+  /* --- Efek Hover --- */
+  
+  .education-card.card:hover .main {
+    transform: scale(1.05); /* Sedikit lebih kecil dari 1.1 agar tidak terlalu besar */
+  }
+  
+  .education-card.card:hover .boxshadow {
+     transform: scale(0.85); /* Sedikit perbesar bayangan saat hover */
+     opacity: 0.8;
+  }
+  
+  .education-card.card:hover .main .top {
+    top: -60px; /* Sesuaikan seberapa jauh segitiga atas bergerak */
+  }
+  
+  .education-card.card:hover .main .left {
+    left: -60px; /* Sesuaikan seberapa jauh sisi kiri terbuka */
+    /* Delay disesuaikan agar terjadi setelah .top bergerak sedikit */
+    transition: all 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86) 0.1s;
+  }
+  
+  .education-card.card:hover .main .right {
+    right: -60px; /* Sesuaikan seberapa jauh sisi kanan terbuka */
+    /* Delay disesuaikan agar terjadi setelah .top bergerak sedikit */
+    transition: all 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86) 0.1s;
+  }
+  
+  /* Animasi muncul untuk education-item saat hover */
+  .education-card.card:hover .main .education-list .education-item {
+    bottom: 0; /* Kembali ke posisi normal (atau sedikit di atas jika perlu) */
+    opacity: 1; /* Jadi terlihat */
+  }
+  
+  /* Stagger (delay berbeda) untuk setiap item pendidikan */
+  .education-card.card:hover .main .education-list .education-item:nth-child(1) {
+    transition-delay: 0.8s; /* Muncul pertama */
+  }
+  .education-card.card:hover .main .education-list .education-item:nth-child(2) {
+    transition-delay: 0.95s; /* Muncul kedua */
+  }
+  .education-card.card:hover .main .education-list .education-item:nth-child(3) {
+    transition-delay: 1.1s; /* Muncul ketiga */
+  }
+  .education-card.card:hover .main .education-list .education-item:nth-child(4) {
+    transition-delay: 1.25s; /* Muncul keempat */
+  }
+  .education-card.card:hover .main .education-list .education-item:nth-child(5) {
+    transition-delay: 1.4s; /* Muncul keempat */
+  }
+
+  .skills-section {
+    padding: 50px 10%;
+    text-align: center;
+  }
+  
+  .heading {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+  
+  .skills {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  
+  .skill-box {
+    background: radial-gradient(ellipse at bottom, #0d1e31, #111);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 6px 15px rgba(23, 38, 255, 0.277);
+    transition: transform 0.2s ease-in-out;
+  }
+  
+.skill-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(34, 70, 251, 0.37);
+}
+
+  .skill-box span {
+    font-size: 18px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    margin-bottom: 10px;
+  }
+  
+  .skill-box i {
+    margin-right: 8px;
+    font-size: 20px;
+  }
+  
+  /* Progress Bar */
+  .progress-wrapper {
+    position: relative;
+    margin-bottom: 30px;
+  }
+  
+  .progress-container {
+    width: 100%;
+    background: #ddd;
+    border-radius: 4px;
+    height: 8px;
+    overflow: hidden;
+  }
+  
+  .progress-bar {
+    width: 0;
+    height: 8px;
+    background: #12b3f3;
+    border-radius: 4px;
+    transition: width 1.5s ease-in-out;
+  }
+  
+  .progress-percent {
+    font-size: 14px;
+    color: white;
+    margin-bottom: 6px;
+  }
+
+footer {
+    min-height: 20vh !important;
+    padding: 40px 0;
+}
+
+footer .container .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+footer .container .content h1 {
+    font: italic bold 1.5rem "IBM Plex Sans", sans-serif;
+    margin-bottom: 0;
+}
+
+footer .container .content .social {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+footer .container .content .social a {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: var(--black);
+    border: 2px solid var(--white);
+    border-radius: 50%;
+    color: var(--white);
+    transition: 0.2s linear;
+    text-decoration: none;
+}
+
+footer .container .content .social a:hover {
+    background-color: var(--white);
+    color: var(--black);
+    transition: 0.2s linear;
+}
+
+footer .container .content .social a i {
+    font-size: 1.2rem;
+    color: var(--white);
+}
+
+footer .container .content .social a:hover i {
+    color: var(--black);
+}
+
+footer .container .content p {
+    font-weight: bold;
+}
